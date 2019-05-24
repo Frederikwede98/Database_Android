@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 public class UpdateProduct extends AppCompatActivity {
 
-    public static final String NOTE_ID = "note_id";
+    public static final String PRODUCT_ID = "product_id";
     static final String UPDATED_NOTE = "note_text";
     static final String UPDATED_PRICE = "price_text";
     static final String UPDATED_STORE = "store_text";
@@ -57,7 +57,7 @@ public class UpdateProduct extends AppCompatActivity {
         String updatedPrice = etPrice.getText().toString();
         String updatedStore = etStore.getText().toString();
         Intent resultIntent = new Intent();
-        resultIntent.putExtra(NOTE_ID, noteId);
+        resultIntent.putExtra(PRODUCT_ID, noteId);
         resultIntent.putExtra(UPDATED_NOTE, updatedNote);
         resultIntent.putExtra(UPDATED_PRICE, updatedPrice);
         resultIntent.putExtra(UPDATED_STORE, updatedStore);

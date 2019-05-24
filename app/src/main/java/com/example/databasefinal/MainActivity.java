@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity implements ProductListAdapte
         if (requestCode == NEW_NOTE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
 
             // Code to insert note
-            Product note = new Product(data.getStringExtra(NewNoteActivity.NOTE_ADDED), data.getStringExtra(NewNoteActivity.PRICE_ADDED), data.getStringExtra(NewNoteActivity.STORE_ADDED));
+            final String product_id = UUID.randomUUID().toString();
+            Product note = new Product(product_id, data.getStringExtra(NewNoteActivity.NOTE_ADDED), data.getStringExtra(NewNoteActivity.PRICE_ADDED), data.getStringExtra(NewNoteActivity.STORE_ADDED));
             productViewModel.insert(note);
 
             Toast.makeText(
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements ProductListAdapte
 
             // Code to update the note
             Product note = new Product(
+                    data.getStringExtra(UpdateProduct.PRODUCT_ID),
                     data.getStringExtra(UpdateProduct.UPDATED_NOTE),
                     data.getStringExtra(UpdateProduct.UPDATED_PRICE),
                     data.getStringExtra(UpdateProduct.UPDATED_STORE));

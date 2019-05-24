@@ -43,11 +43,11 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
 
         if (mNotes != null) {
-         //   Product note = mNotes.get(position);
-            holder.productName.setText(mNotes.get(position).getNote());
-            holder.price.setText(mNotes.get(position).getPrice());
-            holder.productName.setText(mNotes.get(position).getStore());
-           // holder.setData(note.getNote(), note.getPrice(), note.getStore(), position);
+            Product note = mNotes.get(position);
+         //   holder.productName.setText(mNotes.get(position).getNote());
+         //   holder.price.setText(mNotes.get(position).getPrice());
+         //   holder.productName.setText(mNotes.get(position).getStore());
+            holder.setData(note.getNote(), note.getPrice(), note.getStore(), position);
             holder.setListeners();
         } else {
             // Covers the case of data not being ready yet.
@@ -84,12 +84,12 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             imgEdit = itemView.findViewById(R.id.ivRowEdit);
         }
 
-       /* public void setData(String note, String priceOfProduct, String storeName, int position) {
+        public void setData(String note, String priceOfProduct, String storeName, int position) {
             productName.setText(note);
             price.setText(priceOfProduct);
             store.setText(storeName);
             mPosition = position;
-        }*/
+        }
 
         public void setListeners() {
             imgEdit.setOnClickListener(new View.OnClickListener() {
